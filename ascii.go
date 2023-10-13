@@ -67,27 +67,27 @@ func GetAndConvertColors() {
 				if err != nil {
 					panic(err)
 				}
-			} else if brightness >= .4 && brightness < .3 {
+			} else if brightness >= .4 && brightness < .5 {
 				_, err := asciiImg.WriteString(fmt.Sprintf("="))
 				if err != nil {
 					panic(err)
 				}
-			} else if brightness >= .5 && brightness < .4 {
+			} else if brightness >= .5 && brightness < .6 {
 				_, err := asciiImg.WriteString(fmt.Sprintf("x"))
 				if err != nil {
 					panic(err)
 				}
-			} else if brightness >= .6 && brightness < .3 {
+			} else if brightness >= .6 && brightness < .7 {
 				_, err := asciiImg.WriteString(fmt.Sprintf("X"))
 				if err != nil {
 					panic(err)
 				}
-			} else if brightness >= .7 && brightness < .4 {
+			} else if brightness >= .7 && brightness < .8 {
 				_, err := asciiImg.WriteString(fmt.Sprintf("+"))
 				if err != nil {
 					panic(err)
 				}
-			} else if brightness >= .8 && brightness < .3 {
+			} else if brightness >= .8 && brightness < .9 {
 				_, err := asciiImg.WriteString(fmt.Sprintf("$"))
 				if err != nil {
 					panic(err)
