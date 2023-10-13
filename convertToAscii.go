@@ -4,6 +4,6 @@ func ConvertToAscii(imgUrl, textToWrite string) {
 	GetImage(imgUrl)
 	CreatePicText(textToWrite)
 	ConvertToGrayScale()
-	GetColors()
+	GetAndConvertColors()
 
 }
