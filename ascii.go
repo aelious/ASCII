@@ -46,15 +46,67 @@ func GetAndConvertColors() {
 		for x := 0; x < width; x++ {
 			color := img.At(x, y)
 			r, g, b, _ := color.RGBA()
-			brightness := (0.299 * float32(r>>8)) + (0.587 * float32(g>>8)) + (0.116 * float32(b>>8))
-			_, err := asciiImg.WriteString(fmt.Sprintf("%f\n", brightness))
-			if err != nil {
-				panic(err)
+			brightness := (0.299 * float32(r>>8)) + (0.587 * float32(g>>8)) + (0.116*float32(b>>8))/255
+			if brightness >= 0 && brightness < .1 {
+				_, err := asciiImg.WriteString(fmt.Sprintf(" "))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .1 && brightness < .2 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("."))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .2 && brightness < .3 {
+				_, err := asciiImg.WriteString(fmt.Sprintf(":"))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .3 && brightness < .4 {
+				_, err := asciiImg.WriteString(fmt.Sprintf(";"))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .4 && brightness < .3 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("="))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .5 && brightness < .4 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("x"))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .6 && brightness < .3 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("X"))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .7 && brightness < .4 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("+"))
+				if err != nil {
+					panic(err)
+				}
+			} else if brightness >= .8 && brightness < .3 {
+				_, err := asciiImg.WriteString(fmt.Sprintf("$"))
+				if err != nil {
+					panic(err)
+				}
+			} else {
+				_, err := asciiImg.WriteString(fmt.Sprintf("&"))
+				if err != nil {
+					panic(err)
+				}
 			}
+
 			_, errors := fo.WriteString(fmt.Sprintf("Pixel at (%d, %d) - R: %d, G: %d, B: %d\n", x, y, r>>8, g>>8, b>>8))
 			if errors != nil {
 				panic(errors)
 			}
+		}
+		_, err := asciiImg.WriteString(fmt.Sprintf("\n"))
+		if err != nil {
+			panic(err)
 		}
 	}
 	fmt.Printf("File saved successfully.\n")
