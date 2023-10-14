@@ -47,7 +47,7 @@ func GetAndConvertColors() {
 			color := img.At(x, y)
 			r, g, b, _ := color.RGBA()
 			brightness := (0.299 * float32(r>>8)) + (0.587 * float32(g>>8)) + (0.116*float32(b>>8))/255
-			if brightness >= 0 && brightness < .1 {
+			/* if brightness >= 0 && brightness < .1 {
 				_, err := asciiImg.WriteString(fmt.Sprintf(" "))
 				if err != nil {
 					panic(err)
@@ -97,6 +97,10 @@ func GetAndConvertColors() {
 				if err != nil {
 					panic(err)
 				}
+			} */
+			_, err := asciiImg.WriteString(fmt.Sprintf("%f", brightness))
+			if err != nil {
+				panic(err)
 			}
 
 			_, errors := fo.WriteString(fmt.Sprintf("Pixel at (%d, %d) - R: %d, G: %d, B: %d\n", x, y, r>>8, g>>8, b>>8))
