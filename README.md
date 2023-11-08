@@ -1,5 +1,6 @@
 # ASCII
 Converts a picture to ascii art
+
 Simply import the package and call ASCII.ConvertToAscii and include the url of a png you want to convert.
 
 It renders pixel by pixel and can be overwhelming for large photos. Try it out with small images to start with!
